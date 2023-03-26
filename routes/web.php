@@ -20,3 +20,17 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('test');
 });
+
+
+Route::post('/test', function (Illuminate\Http\Request $request) {
+    // Mengambil data dari form input
+    $name = $request->input('name');
+    $email = $request->input('email');
+    $phone = $request->input('phone');
+
+    // Simpan data ke database atau lakukan operasi lainnya
+    // ...
+
+    // Tampilkan pesan sukses dan kembalikan ke halaman form
+    return redirect('/test')->with('success', 'Data berhasil disimpan.');
+});
